@@ -9,14 +9,19 @@ public class CalculatorClient {
 
 
     public static void main(String[] args) throws MalformedURLException {
-        URL url = new URL("http://0.0.0.0:12345/calc?wsdl");
+        URL url = new URL("http://localhost:12345/calc?wsdl");
 
         QName qname = new QName("http://service/", "CalculatorImplService");
         Service service = Service.create(url, qname);
 
-        Calculator cal=service.getPort(Calculator.class);
+        Calculator cal = service.getPort(Calculator.class);
 
-        System.out.println(cal.add(10,15));
+        System.out.println("Operations performed on 15, 3");
+
+        System.out.println("add - " + cal.add(15, 3));
+        System.out.println("sub - " + cal.sub(15, 3));
+        System.out.println("mul - " + cal.mul(15, 3));
+        System.out.println("div - " + cal.div(15, 3));
     }
 
 

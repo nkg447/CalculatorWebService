@@ -1,4 +1,5 @@
 package service;
+
 import javax.jws.WebService;
 import javax.xml.ws.Endpoint;
 
@@ -10,34 +11,34 @@ public class CalculatorImpl implements Calculator {
         Endpoint.publish(url, new CalculatorImpl());
 
         System.out.println("Web Service started");
-        System.out.println("wsdl link - "+url+"?wsdl");
+        System.out.println("wsdl link - " + url + "?wsdl");
     }
 
     private static void log(int x, int y, String op) {
-        System.out.println("result for ("+x+" "+op+" "+y+") sent");
+        System.out.println("result for (" + x + " " + op + " " + y + ") sent");
     }
 
     @Override
     public int add(int a, int b) {
         log(a, b, "+");
-        return a+b;
+        return a + b;
     }
 
     @Override
     public int sub(int a, int b) {
         log(a, b, "-");
-        return a-b;
+        return a - b;
     }
 
     @Override
     public int mul(int a, int b) {
         log(a, b, "*");
-        return a*b;
+        return a * b;
     }
 
     @Override
     public int div(int a, int b) {
         log(a, b, "/");
-        return a/b;
+        return a / b;
     }
 }
