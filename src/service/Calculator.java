@@ -7,13 +7,6 @@ import javax.jws.soap.SOAPBinding;
 @SOAPBinding(style = SOAPBinding.Style.DOCUMENT)
 public interface Calculator {
 
-    int add(int a, int b);
-
-    int sub(int a, int b);
-
-    int mul(int a, int b);
-
-    int div(int a, int b);
-
+    public int calculate(int x, int y, String operation);
 
 }

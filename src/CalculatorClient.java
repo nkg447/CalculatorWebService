@@ -16,12 +16,8 @@ public class CalculatorClient {
 
         Calculator cal = service.getPort(Calculator.class);
 
-        System.out.println("Operations performed on 15, 3");
 
-        System.out.println("add - " + cal.add(15, 3));
-        System.out.println("sub - " + cal.sub(15, 3));
-        System.out.println("mul - " + cal.mul(15, 3));
-        System.out.println("div - " + cal.div(15, 3));
+        System.out.println("add - " + cal.calculate(15, 3,"ADD"));
     }
 
 

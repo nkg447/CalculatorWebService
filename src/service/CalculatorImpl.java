@@ -10,35 +10,37 @@ public class CalculatorImpl implements Calculator {
         String url = "http://0.0.0.0:12345/calc";
         Endpoint.publish(url, new CalculatorImpl());
 
-        System.out.println("Web Service started");
-        System.out.println("wsdl link - " + url + "?wsdl");
     }
 
-    private static void log(int x, int y, String op) {
-        System.out.println("result for (" + x + " " + op + " " + y + ") sent");
-    }
 
-    @Override
-    public int add(int a, int b) {
-        log(a, b, "+");
-        return a + b;
-    }
+    public int calculate(int x, int y, String operation) {
+        int result=0;
+        operation=operation.toUpperCase();
+        String op;
+        if ("ADD".equals(operation)) {
+            result = x + y;
+            op = "+";
+        } else if ("SUB".equals(operation)) {
+            result = x - y;
+            op = "-";
+        } else if ("MULT".equals(operation)) {
+            result = x * y;
+            op = "*";
+        } else if ("DIV".equals(operation)) {
+            result = x / y;
+            op = "/";
+        } else {
+            op="Enter ADD/SUB/MULT/DIV";
+        }
 
-    @Override
-    public int sub(int a, int b) {
-        log(a, b, "-");
-        return a - b;
-    }
+        if(op.equals("Enter ADD/SUB/MULT/DIV"))
+            System.out.println("\n\n"+op);
+        else
+            log(x, y, result, op);
 
-    @Override
-    public int mul(int a, int b) {
-        log(a, b, "*");
-        return a * b;
+        return result;
     }
-
-    @Override
-    public int div(int a, int b) {
-        log(a, b, "/");
-        return a / b;
+    private static void log(int x, int y, int result, String op) {
+        System.out.println("\n\n"+x+" "+op+" "+y+" = "+result);
     }
 }
